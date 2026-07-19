@@ -1,0 +1,213 @@
+/* ============ Design tokens ============ */
+:root {
+  --bg: #08080d;
+  --bg-raised: #0e0e17;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #e9e9f2;
+  --text-dim: #9b9bb3;
+  --text-faint: #6d6d85;
+  --accent-1: #7b68ee;
+  --accent-2: #49ccf9;
+  --green: #00b884;
+  --pink: #fd71af;
+  --yellow: #ffc800;
+  --grad: linear-gradient(92deg, var(--accent-1), var(--accent-2));
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --radius: 14px;
+  --nav-h: 72px;
+}
+
+/* ============ Base ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-1);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #26263a;
+  border-radius: 5px;
+  &:hover {
+    background: #34344e;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ============ Layout helpers ============ */
+.section {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: clamp(72px, 10vh, 120px) 24px;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 44px;
+
+  .section-head__num {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  &::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, var(--border), transparent);
+    transform: translateY(-6px);
+  }
+}
+
+/* ============ Buttons & chips ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 26px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &--solid {
+    background: var(--grad);
+    color: #fff;
+    box-shadow: 0 8px 28px rgba(123, 104, 238, 0.35);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(73, 204, 249, 0.4);
+    }
+  }
+
+  &--ghost {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--surface);
+
+    &:hover {
+      transform: translateY(-2px);
+      background: var(--surface-hover);
+      border-color: rgba(123, 104, 238, 0.6);
+    }
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    color: var(--text);
+    border-color: rgba(73, 204, 249, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============ Scroll reveal ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .btn,
+  .chip {
+    transition: none;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="glow glow--one" aria-hidden="true"></div>
+<div class="glow glow--two" aria-hidden="true"></div>
+
+<app-nav />
+
+<main>
+  <app-hero />
+  <app-about />
+  <app-experience />
+  <app-work />
+  <app-publications />
+  <app-contact />
+</main>
+
+<aside class="rail rail--left" aria-label="Social links">
+  <a href="https://github.com/lawaldare" target="_blank" rel="noopener" aria-label="GitHub">
+    <app-icon name="github" [size]="20" />
+  </a>
+  <a
+    href="https://www.linkedin.com/in/dare-lawal/"
+    target="_blank"
+    rel="noopener"
+    aria-label="LinkedIn"
+  >
+    <app-icon name="linkedin" [size]="20" />
+  </a>
+  <a
+    href="https://twitter.com/lawaldarekayode"
+    target="_blank"
+    rel="noopener"
+    aria-label="Twitter / X"
+  >
+    <app-icon name="twitter" [size]="20" />
+  </a>
+  <span class="rail__line"></span>
+</aside>
+
+<aside class="rail rail--right" aria-label="Email">
+  <a href="mailto:lawaldare@gmail.com" class="rail__email">lawaldare&#64;gmail.com</a>
+  <span class="rail__line"></span>
+</aside>
