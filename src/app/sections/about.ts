@@ -15,21 +15,20 @@ import { stackChips } from '../data/db';
       <div class="about">
         <div class="about__text" reveal>
           <p>
-            I'm a frontend engineer with over seven years of experience crafting dynamic,
-            responsive web applications — most of them with Angular. Today I work at the
-            European Bioinformatics Institute (EMBL-EBI) in Cambridge, contributing to
-            scientific platforms like <strong>PDBe</strong> and the
-            <strong>AlphaFold Protein Structure Database</strong>.
+            I'm a frontend engineer with over seven years of experience crafting dynamic, responsive
+            web applications — most of them with Angular. Today I work at the European
+            Bioinformatics Institute (EMBL-EBI) in Cambridge, contributing to scientific platforms
+            like <strong>PDBe</strong> and the <strong>PDBe-KB</strong>.
           </p>
           <p>
-            I care about clean, well-structured code that scales: elegant interfaces,
-            thoughtful state management, and applications that stay maintainable long after
-            they ship. Along the way I've worked with teams across the UK, Malta, Ukraine,
-            Nigeria, and the US — in fintech, iGaming, capital markets, and science.
+            I care about clean, well-structured code that scales: elegant interfaces, thoughtful
+            state management, and applications that stay maintainable long after they ship. Along
+            the way I've worked with teams across the UK, Malta, Ukraine, Nigeria, and the US — in
+            fintech, iGaming, capital markets, and science.
           </p>
           <p>
-            I'm passionate about staying current with the frontend ecosystem — signals,
-            zoneless Angular, and whatever comes next — and I'm available for remote work.
+            I'm passionate about staying current with the frontend ecosystem — signals, zoneless
+            Angular, and whatever comes next — and I'm available for remote work.
           </p>
 
           <div class="about__stats">
@@ -76,7 +75,10 @@ import { stackChips } from '../data/db';
       margin-bottom: 18px;
       max-width: 62ch;
 
-      strong { color: var(--text); font-weight: 600; }
+      strong {
+        color: var(--text);
+        font-weight: 600;
+      }
     }
 
     .about__stats {
@@ -130,8 +132,13 @@ import { stackChips } from '../data/db';
     }
 
     @media (max-width: 860px) {
-      .about { grid-template-columns: 1fr; gap: 40px; }
-      .about__stack { position: static; }
+      .about {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about__stack {
+        position: static;
+      }
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

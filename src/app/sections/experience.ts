@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { Reveal } from '../shared/reveal';
 import { jobs } from '../data/db';
+import { JobDuration } from '../shared/job-duration';
 
 @Component({
   selector: 'app-experience',
-  imports: [Reveal],
+  imports: [Reveal, JobDuration],
   template: `
     <section class="section" id="experience">
       <div class="section-head" reveal>
@@ -17,10 +18,12 @@ import { jobs } from '../data/db';
           <li class="entry" reveal [revealDelay]="(i % 3) * 80">
             <span class="entry__dot" [style.background]="job.themeColor"></span>
             <div class="entry__card">
-              <p class="entry__date">{{ job.date }}</p>
+              <p class="entry__date">{{ job.date }} <span duration [job]="job"></span></p>
               <h3 class="entry__title">
                 {{ job.title }} <span class="entry__at">·</span>
-                <span class="entry__company" [style.color]="job.themeColor">{{ job.companyName }}</span>
+                <span class="entry__company" [style.color]="job.themeColor">{{
+                  job.companyName
+                }}</span>
               </h3>
               <p class="entry__location">{{ job.location }}</p>
             </div>
@@ -57,7 +60,9 @@ import { jobs } from '../data/db';
       position: relative;
       padding-bottom: 30px;
 
-      &:last-child { padding-bottom: 0; }
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
 
     .entry__dot {
@@ -75,7 +80,10 @@ import { jobs } from '../data/db';
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background: var(--surface);
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
 
       &:hover {
         transform: translateX(6px);
@@ -97,7 +105,10 @@ import { jobs } from '../data/db';
       font-weight: 600;
     }
 
-    .entry__at { color: var(--text-faint); margin: 0 4px; }
+    .entry__at {
+      color: var(--text-faint);
+      margin: 0 4px;
+    }
 
     .entry__location {
       font-size: 0.88rem;
@@ -113,11 +124,11 @@ import { jobs } from '../data/db';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Experience {
-  public readonly total = jobs.length;
-  public readonly showAll = signal(false);
-  public readonly visible = computed(() => (this.showAll() ? jobs : jobs.slice(0, 6)));
+  protected readonly total = jobs.length;
+  protected readonly showAll = signal(false);
+  protected readonly visible = computed(() => (this.showAll() ? jobs : jobs.slice(0, 6)));
 
-  public toggle(): void {
+  protected toggle(): void {
     this.showAll.update((v) => !v);
   }
 }
