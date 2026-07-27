@@ -354,7 +354,7 @@ export const papers: Paper[] = [
 
 export const socials: Social[] = [
   { kind: 'github', label: 'GitHub', link: 'https://github.com/lawaldare' },
-  { kind: 'linkedin', label: 'LinkedIn', link: 'https://www.linkedin.com/in/dare-lawal/' },
+  { kind: 'linkedin', label: 'LinkedIn', link: 'https://www.linkedin.com/in/lawaldarekayode/' },
   { kind: 'twitter', label: 'Twitter / X', link: 'https://twitter.com/lawaldarekayode' },
   { kind: 'instagram', label: 'Instagram', link: 'https://www.instagram.com/lawaldarekayode/' },
   { kind: 'facebook', label: 'Facebook', link: 'https://www.facebook.com/lawal.dare' },
