@@ -54,10 +54,10 @@ export const projects: Project[] = [
   },
   {
     name: 'Infinite Scroll Gallery',
-    imageURL: 'images/isga.png',
+    imageURL: 'images/olajumoke-gallery.png',
     stack: 'angular',
-    viewLink: 'https://infinite-scroll-gallery-jet.vercel.app/',
-    repoLink: 'https://github.com/lawaldare/infinite-scroll-gallery',
+    viewLink: 'https://olajumoke-gallery.vercel.app/',
+    repoLink: 'https://github.com/lawaldare/olajumoke-gallery',
     desc: 'An infinite-scroll image gallery built with Angular 20 and signals.',
   },
   {
@@ -94,7 +94,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Clock',
-    imageURL: 'images/clock.jpg',
+    imageURL: 'images/clock.png',
     stack: 'javascript',
     viewLink: 'https://lawaldare.github.io/clock/',
     repoLink: 'https://github.com/lawaldare/clock',
